@@ -1,8 +1,7 @@
 
-
 node
 {
-   stage('scm')
+   stage('cloning code')
     {
       git 'https://github.com/wakaleo/game-of-life.git'
     }
