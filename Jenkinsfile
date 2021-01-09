@@ -9,6 +9,10 @@ node
    {
      sh 'mvn package'
    }
+   stage('archiving artifacts')
+    {
+       archiveArtifacts artifacts: '/var/lib/jenkins/workspace/gameoflifeproj/gameoflife-      web/target', followSymlinks: false
+    }
 }
 
 
