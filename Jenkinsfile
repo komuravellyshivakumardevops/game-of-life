@@ -1,5 +1,3 @@
-
-
 node
 {
    stage('scm')
@@ -14,5 +12,9 @@ node
      {
         archiveArtifacts artifacts: 'gameoflife-web/target/*.war', followSymlinks: false
      }
+   stage('test reports')
+    {
+      junit '/scriptedtest-2/gameoflife-web/target/surefire-reports/*.xml'
+    }
       
 }
