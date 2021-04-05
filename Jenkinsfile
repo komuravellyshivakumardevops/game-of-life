@@ -1,14 +1,18 @@
 
+
 node
 {
-   stage('cloning code')
+   stage('scm')
     {
-      git 'https://github.com/wakaleo/game-of-life.git'
+       git 'https://github.com/wakaleo/game-of-life.git'
     }
-   stage('creating arfifacts')
+   stage('mvn package')
    {
-     sh 'mvn package'
+      sh 'mvn package'
    }
+    stage('archiving artifacts')
+     {
+        archiveArtifacts artifacts: 'gameoflife-web/target/*.war', followSymlinks: false
+     }
+      
 }
-
-
